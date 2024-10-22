@@ -23,4 +23,13 @@ ID_Libro Int primary key identity (1,1),
 Titulo varchar(200) not null, 
 Autor varchar(200) not null
 )
- 
+
+--Modificar la tabla 
+
+Alter table Cliente Add telefono Varchar(15)
+
+--Modificar columnas 
+Alter table Cliente
+Alter Column telefono  Varchar(20) Not null
+
+EXEC sp_rename 'Cliente.telefono', 'telefonoPersonal','COLUMN'
