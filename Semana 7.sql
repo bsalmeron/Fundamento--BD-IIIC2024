@@ -5,3 +5,6 @@ Create Database BancoBD
 Drop Database BancoBD
 -- Backup e
 BACKUP DATABASE BancoBD TO DISK = 'C:\Backup\BancoBD.bak'
+
+
+--Hola
