@@ -57,3 +57,17 @@ Precio int check ( Precio >=1) Default 100
 Alter Table Revistas 
 Add Constraint DF_Resvistas_Autor
 Default 'Sin Autor' For Autor
+
+---FOREIGN KEY
+/*
+Ejemplo: Relación entre "Estudiantes" y "Cursos"
+Un estudiante puede estar inscrito en varios cursos.
+Un curso puede tener varios estudiantes inscritos.
+Pasos:
+Tabla Estudiantes: Representa a los estudiantes.
+Tabla Cursos: Representa a los cursos.
+Tabla intermedia Estudiantes_Cursos: Contiene las llaves foráneas
+tanto de Estudiantes como de Cursos,
+y representa la relación de muchos a muchos.
+
+*/
