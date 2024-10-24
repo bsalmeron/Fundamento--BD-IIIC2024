@@ -69,5 +69,44 @@ Tabla Cursos: Representa a los cursos.
 Tabla intermedia Estudiantes_Cursos: Contiene las llaves foráneas
 tanto de Estudiantes como de Cursos,
 y representa la relación de muchos a muchos.
-
 */
+
+/*La integridad relacional es un conjunto 
+de reglas que asegura que los datos en una base 
+de datos se mantengan consistentes y correctos.
+Su propósito principal es garantizar que las relaciones
+entre las tablas se mantengan de manera adecuada.*/
+
+--Estudiantes 
+Create database EscuelaDB
+Use EscuelaDB
+Create Table Estudiantes (
+ID_Estudiante Int Primary Key Identity(1,1),
+Nombre varchar(100) Not null
+)
+
+Create Table Cursos (
+ID_Cursos Int Primary Key Identity(1,1), 
+Nombre_Curso varchar(100) Not null UNIQUE
+)
+
+Create Table  Estudiantes_Cursos (
+ID Int Primary Key Identity(1,1),
+ID_Estudiante Int ,
+ID_Cursos Int, 
+Fecha_Matricula Date Default Getdate(), 
+Foreign Key(ID_Estudiante) References Estudiantes(ID_Estudiante),
+Foreign Key (ID_Cursos) References Cursos(ID_Cursos)
+)
+
+
+
+
+
+Exec sp_help'Estudiantes_Cursos'
+
+SELECT COLUMN_NAME, DATA_TYPE, CHARACTER_MAXIMUM_LENGTH
+FROM INFORMATION_SCHEMA.COLUMNS
+WHERE TABLE_NAME = 'Estudiantes_Cursos';
+
+ 
