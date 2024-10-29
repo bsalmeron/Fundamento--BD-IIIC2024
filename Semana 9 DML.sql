@@ -15,5 +15,7 @@ order by UnitsInStock Desc
 -- y ordenarlo de forma asc por su fecha de cumpleaños
 -- Nombre, pais, fecha cumple, TitleOfCourtesy
  
-
+Select TitleOfCourtesy, FirstName, Country, BirthDate from Employees
+where Country ='USA'
+order by BirthDate asc
 
