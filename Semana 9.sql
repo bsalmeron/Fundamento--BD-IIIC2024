@@ -3,3 +3,5 @@
 -- Productos ID, Nombre, varchar(50)
 -- Venta ID, ID_Cliente, ID_Producto, Fecha_Compra Default del 
 --dia y hora de insercciòn
+
+--Nombre Datetime Default GETDATE()
