@@ -74,9 +74,11 @@
  Where ID=4
 
  -- Actualizar la tabla productos donde el ID = 2 
+ Select ID, Nombre from Producto
 
-
-
+ Update Producto
+ Set Nombre ='Coca cola'
+ Where ID=1
 
  
  
