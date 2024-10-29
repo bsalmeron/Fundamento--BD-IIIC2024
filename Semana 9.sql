@@ -53,6 +53,15 @@
  -- El cliente 1 - Compro Manzanas  - No indico
  -- El cliente 2 - Compro Galletas  - Sabado 
 
- Select Getdate()
+ 
 
- '2024-10-28 18:55:58.340'
+ Insert Into venta (Fecha_Compra, ID_Producto, ID_Cliente)
+ Values('2024-10-27 20:00:00.000',1,2)
+
+ Insert Into venta ( ID_Producto, ID_Cliente)
+ Values(1,2)
+
+ Select * from  venta
+
+ 
+ 
