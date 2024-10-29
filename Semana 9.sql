@@ -61,7 +61,22 @@
  Insert Into venta ( ID_Producto, ID_Cliente)
  Values(1,2)
 
- Select * from  venta
+ --Leer
+
+ Select ID_Cliente, ID_Producto,Fecha_Compra from  venta
+
+ --Update 
+ select Id, Nombre, Correo from Cliente
+
+ Update  Cliente
+ Set Nombre ='Adrian', 
+ Correo='adrianucenfotec.ac.cr'
+ Where ID=4
+
+ -- Actualizar la tabla productos donde el ID = 2 
+
+
+
 
  
  
