@@ -36,6 +36,23 @@
 
  --Crear o insertar 
  Insert Into Cliente (Nombre,Correo)
- Values('alonso','alonso@ucenfotec.ac.cr')
+ Values('alonsoa','alonso@ucenfotec.ac.cr'),
+ ('alonsosc','alonso@ucenfotec.ac.cr'),
+ ('alonsoc','alonso@ucenfotec.ac.cr')
 
  Select * from Cliente
+
+ --Insertar 3 productos
+ Insert Into Producto(Nombre)
+ Values('Galletas'),
+ ('Refrigeradora'),
+ ('Manzanas')
+  
+ --Inserccion de 2 ventas 
+ -- El cliente 1 - Compro Refrigeradora Ayer
+ -- El cliente 1 - Compro Manzanas  - No indico
+ -- El cliente 2 - Compro Galletas  - Sabado 
+
+ Select Getdate()
+
+ '2024-10-28 18:55:58.340'
