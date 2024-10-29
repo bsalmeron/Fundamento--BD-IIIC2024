@@ -80,5 +80,14 @@
  Set Nombre ='Coca cola'
  Where ID=1
 
- 
- 
+ --Eliminar 
+
+ Delete venta
+ Where ID=3
+ Delete venta
+ Where ID =1  
+
+ Delete Producto 
+ Where ID= 1
+
+ Select * from venta
