@@ -101,8 +101,6 @@ Foreign Key (ID_Cursos) References Cursos(ID_Cursos)
 
 
 
-
-
 Exec sp_help'Estudiantes_Cursos'
 
 SELECT COLUMN_NAME, DATA_TYPE, CHARACTER_MAXIMUM_LENGTH
