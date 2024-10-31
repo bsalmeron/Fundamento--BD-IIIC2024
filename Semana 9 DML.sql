@@ -26,6 +26,19 @@ from Customers A
 Left join Orders B 
 on A.CustomerID = B.CustomerID
 
+Select B.OrderID, B.OrderDate, A.CustomerID, A.CompanyName
+from Customers A 
+Right join Orders B 
+on A.CustomerID = B.CustomerID
+
+
+
+Select A.CustomerID, A.CompanyName, B.OrderID, B.OrderDate
+from Customers A 
+inner join Orders B 
+on A.CustomerID = B.CustomerID
+
+
 
 
  
