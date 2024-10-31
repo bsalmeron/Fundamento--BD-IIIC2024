@@ -39,6 +39,10 @@ inner join Orders B
 on A.CustomerID = B.CustomerID
 
 
-
+-- Grupo 1  Insert [dbo].[Categories] SP
+-- Grupo 2  Update [dbo].[Products] SP
+-- Grupo 3  Delete [dbo].[Orders]  SP
+-- Grupo 4  Select con Ineer Join [dbo].[Order Details] SP
+-- Grupo 5  Select Con left [dbo].[Products]  SP
 
  
