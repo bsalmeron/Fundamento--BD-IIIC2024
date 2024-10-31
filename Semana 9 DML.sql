@@ -14,8 +14,18 @@ order by UnitsInStock Desc
 -- Seleccionar todos los empleados, donde el Pais sea USA 
 -- y ordenarlo de forma asc por su fecha de cumpleaños
 -- Nombre, pais, fecha cumple, TitleOfCourtesy
- 
+
 Select TitleOfCourtesy, FirstName, Country, BirthDate from Employees
 where Country ='USA'
 order by BirthDate asc
 
+--JOINS
+use Northwind
+Select A.CustomerID, A.CompanyName, B.OrderID, B.OrderDate
+from Customers A 
+Left join Orders B 
+on A.CustomerID = B.CustomerID
+
+
+
+ 
