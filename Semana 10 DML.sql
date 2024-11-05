@@ -62,3 +62,44 @@ Inner Join Products P
 on OD.ProductID=P.ProductID
 Group by C.ContactName, p.productName
 Order by  C.ContactName asc , COUNT(O.OrderID) desc 
+
+-- having 
+
+Select C.ContactName, p.productName, COUNT(O.OrderID)'cantidadOrdenes' from 
+Customers C Inner join 
+Orders O on C.CustomerID = O.CustomerID
+Inner Join [Order Details] OD 
+on O.OrderID = OD.OrderID
+Inner Join Products P 
+on OD.ProductID=P.ProductID
+Group by C.ContactName, p.productName
+Having  COUNT(O.OrderID)>3
+Order by  C.ContactName asc , COUNT(O.OrderID) desc 
+ 
+
+--Procedimiento almacenado que reciba el nombre del cliente y muestre las ordenes de un cliente
+--donde ha comprado mas de 4 veces un producto 
+
+
+Create Procedure ObtenerOrdenesClientes 
+
+@NombreCliente Varchar(100)
+as
+Begin
+	Select C.ContactName, p.productName, COUNT(O.OrderID)'cantidadOrdenes' from 
+	Customers C Inner join 
+	Orders O on C.CustomerID = O.CustomerID
+	Inner Join [Order Details] OD 
+	on O.OrderID = OD.OrderID
+	Inner Join Products P 
+	on OD.ProductID=P.ProductID
+	Where C.ContactName = @NombreCliente
+	Group by C.ContactName, p.productName
+	Having  COUNT(O.OrderID)>3
+	Order by  C.ContactName asc , COUNT(O.OrderID) desc
+	
+End
+
+
+Exec ObtenerOrdenesClientes 'Horst Kloss'
+
