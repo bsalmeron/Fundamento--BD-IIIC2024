@@ -103,3 +103,5 @@ End
 
 Exec ObtenerOrdenesClientes 'Horst Kloss'
 
+--Orden ejecuccion SQL 
+-- https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhagQGV4V5ga4aLTVt5YLFl8ITK5jaScd5QoR1gd7dUcdo4xZR8UWYdpgoSqqX8kp4DDSHMLMSSAUWobHkwO91d7uFd4eDWjsp9xaXyBhYbRpHu5XmH58iLQHZc5dt2GQJ1RNXEe0EOuKOk/s1600/orden_sql_ejecucion.png
