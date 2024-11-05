@@ -23,5 +23,16 @@ where (C.CategoryName ='Beverages' OR P.UnitsInStock>30)
 AND P.Discontinued =1
 Order by  P.UnitsInStock asc
 
-
+--NULL
  
+
+Select Customers.ContactName, Orders.ShipRegion from Orders
+Inner Join Customers
+on Orders.CustomerID = Customers.CustomerID
+where Orders.ShipRegion is null
+
+Select Customers.ContactName, Orders.ShipRegion from Orders
+Inner Join Customers
+on Orders.CustomerID = Customers.CustomerID
+where Orders.ShipRegion is not null
+
