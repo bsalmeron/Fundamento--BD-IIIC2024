@@ -105,3 +105,32 @@ Exec ObtenerOrdenesClientes 'Horst Kloss'
 
 --Orden ejecuccion SQL 
 -- https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhagQGV4V5ga4aLTVt5YLFl8ITK5jaScd5QoR1gd7dUcdo4xZR8UWYdpgoSqqX8kp4DDSHMLMSSAUWobHkwO91d7uFd4eDWjsp9xaXyBhYbRpHu5XmH58iLQHZc5dt2GQJ1RNXEe0EOuKOk/s1600/orden_sql_ejecucion.png
+
+
+
+--Group By 
+Use [Northwind]
+
+Select C.CategoryName, COUNT(O.OrderID)'cantidadOrdenes',SUM(O.Quantity*O.UnitPrice) 'montoTotalProducto',
+MAX(O.UnitPrice) 'precioMasAltoVenta', MIN(O.UnitPrice) 'precioMasBajoVenta'
+from [Order Details] O
+Inner Join Products P
+On O.ProductID = P.ProductID 
+Inner Join Categories C 
+On C.CategoryID=P.CategoryID
+Group By C.CategoryName
+Order by  C.CategoryName
+
+--TOP 10 de clientes con mas ordenes 
+
+Select  Top 15 C.ContactName, COUNT(O.OrderID)'cantidadOrdenes' From Orders O 
+Inner Join Customers C 
+On o.CustomerID = C.CustomerID
+Group By C.ContactName 
+Order by COUNT(O.OrderID) desc
+
+-- Like 
+
+Select ProductName, QuantityPerUnit from Products
+where ProductName Like '%ca%'
+
