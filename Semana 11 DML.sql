@@ -19,7 +19,7 @@ GO
 
 
 
-Select empleados.nombre, fecha_fin 'Inicio', fecha_inicio 'Finalizacion' from
+Select empleados.nombre, fecha_inicio 'Inicio', fecha_fin 'Finalizacion' from
 (Select empleado_id, fecha_inicio, NULL fecha_fin 
 from proyectos
 UNION
@@ -28,3 +28,4 @@ from proyectos_historico) As ProyectosGeneral
 inner join empleados 
 on ProyectosGeneral.empleado_id = empleados.id
 order by Inicio desc
+
