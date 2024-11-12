@@ -62,3 +62,4 @@ VALUES (1, '2023-01-01'),
 GO
 
  
+select * from empleados
