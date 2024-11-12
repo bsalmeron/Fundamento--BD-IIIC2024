@@ -1,19 +1,14 @@
+ use master
+  
+Drop database [Empresa]
+
+
 -- Creación de la base de datos
 CREATE DATABASE Empresa;
 GO
 
 -- Seleccionamos la base de datos
 USE Empresa;
-GO
-
--- Creación de la tabla empleados
-CREATE TABLE empleados (
-    id INT PRIMARY KEY IDENTITY,
-    nombre VARCHAR(100),
-    salario DECIMAL(10, 2),
-    fecha_ingreso DATE,
-    departamento_id INT
-);
 GO
 
 -- Creación de la tabla departamentos
@@ -23,14 +18,19 @@ CREATE TABLE departamentos (
 );
 GO
 
--- Creación de la tabla clientes
-CREATE TABLE clientes (
+-- Creación de la tabla empleados
+CREATE TABLE empleados (
     id INT PRIMARY KEY IDENTITY,
     nombre VARCHAR(100),
-    gasto DECIMAL(10, 2)
+    salario DECIMAL(10, 2),
+    fecha_ingreso DATE,
+    departamento_id INT,
+	FOREIGN KEY (departamento_id) REFERENCES departamentos(id)
 );
 GO
 
+
+ 
 -- Creación de la tabla proyectos
 CREATE TABLE proyectos (
     id INT PRIMARY KEY IDENTITY,
@@ -53,12 +53,6 @@ VALUES ('Carlos', 55000, '2020-05-10', 1),
        ('Luisa', 60000, '2022-01-10', 4);
 GO
 
--- Insertar algunos datos de muestra en la tabla clientes
-INSERT INTO clientes (nombre, gasto)
-VALUES ('Cliente1', 1200.50),
-       ('Cliente2', 1500.00),
-       ('Cliente3', 500.75);
-GO
 
 -- Insertar algunos datos de muestra en la tabla proyectos
 INSERT INTO proyectos (empleado_id, fecha_inicio)
@@ -66,3 +60,5 @@ VALUES (1, '2023-01-01'),
        (2, '2023-03-01'),
        (3, '2023-06-01');
 GO
+
+ 
