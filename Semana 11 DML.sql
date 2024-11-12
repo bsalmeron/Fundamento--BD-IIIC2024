@@ -64,3 +64,5 @@ Select * from empleados
 where exists (select 1 from departamentos where 
 id= empleados.departamento_id)
 
+
+  
