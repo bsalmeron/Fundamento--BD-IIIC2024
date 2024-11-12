@@ -22,7 +22,7 @@ select * from proyectos_historico
 Select empleados.nombre, fecha_inicio 'Inicio', fecha_fin 'Finalizacion' from
 (Select empleado_id, fecha_inicio, NULL fecha_fin 
 from proyectos
-UNION
+UNION ALL
 Select empleado_id, fecha_inicio, fecha_fin 
 from proyectos_historico) As ProyectosGeneral
 inner join empleados 
@@ -64,5 +64,32 @@ Select * from empleados
 where exists (select 1 from departamentos where 
 id= empleados.departamento_id)
 
+--CASE 
 
-  
+Select   nombre, 
+Case 
+When salario>70000 Then 'Alto' 
+When salario>40000 Then 'Medio'
+Else  'Bajo'
+END AS Categoria 
+From empleados
+
+
+-- Fecha 
+
+Select GETDATE(),  DATEADD(HOUR,-6, GETDATE())
+
+--DATEADD
+Select * from empleados
+Where fecha_ingreso > DATEADD(MONTH,-6, GETDATE())
+
+--DATEDIFF
+
+SELECT nombre, DATEDIFF(MONTH, fecha_ingreso, GETDATE()) AS dias_trabajados
+FROM empleados;--SELECT INTOSELECT * INTO RespaldoEmpleadosFrom empleadosSELECT e.nombre, e.salario, d.nombre AS departamento
+INTO empleados_departamentos
+FROM empleados e
+JOIN departamentos d ON e.departamento_id = d.id; 
+--NULL y Funciones de NULL
+
+  SELECT nombre, ISNULL(salario, 0) AS salario FROM empleados; 

@@ -29,20 +29,24 @@ INSERT INTO Ventas (libro_id, fecha, cantidad) VALUES
 (2, '2024-10-02', 5),
 (3, '2024-10-03', 1),
 (4, '2024-10-04', 3),
+(5, '2024-10-05', 4),
 (5, '2024-10-05', 4);
+
+
+--ANY
 
 SELECT titulo, precio
 FROM Libros
 WHERE precio = ANY (
     SELECT precio
     FROM Libros
-    JOIN Ventas ON Libros.libro_id = Ventas.libro_id
+    INNER JOIN Ventas ON Libros.libro_id = Ventas.libro_id
     GROUP BY precio
     HAVING SUM(cantidad) > 1
 );
 
-
-
+ 
+ 
 SELECT titulo, precio
 FROM Libros
 WHERE precio > ANY (

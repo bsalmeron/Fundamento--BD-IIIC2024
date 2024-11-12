@@ -61,5 +61,3 @@ VALUES (1, '2023-01-01'),
        (3, '2023-06-01');
 GO
 
- 
-select * from empleados
