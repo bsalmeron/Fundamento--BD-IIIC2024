@@ -11,11 +11,11 @@ CREATE TABLE proyectos_historico (
 GO
 
 INSERT INTO proyectos_historico (empleado_id, fecha_inicio,fecha_fin)
-VALUES (1, '2023-01-01','2024-01-01'),
-       (2, '2023-03-01', '2025-01-01'),
-       (3, '2023-06-01','2026-01-01');
+VALUES (1, '2025-11-01','2027-12-01')
+        
 GO
 
+select * from proyectos_historico
 
 
 
@@ -28,4 +28,17 @@ from proyectos_historico) As ProyectosGeneral
 inner join empleados 
 on ProyectosGeneral.empleado_id = empleados.id
 order by Inicio desc
+
+
+Select  empleados.nombre, COUNT(ProyectosGeneral.empleado_id) 'CantidadProyectos'  from
+(Select  empleado_id, fecha_inicio, NULL fecha_fin 
+from proyectos
+UNION  ALL
+Select empleado_id, fecha_inicio, fecha_fin 
+from proyectos_historico) As ProyectosGeneral
+inner join empleados 
+on ProyectosGeneral.empleado_id = empleados.id
+Group by empleados.nombre
+
+
 
