@@ -100,3 +100,23 @@ where CustomerID='ANATR'
 select * from ##TempOrdersGlobal
 
 Drop table ##TempOrdersGlobal
+
+--Transacciones 
+Begin Transaction
+Update Customers
+set ContactName='Brayner'
+Commit
+Rollback
+
+
+try
+	logica
+	Paso 1
+	Paso 2
+	throw
+	Paso 3
+	Commit
+catch
+	Rollback
+
+ 
