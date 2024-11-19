@@ -41,5 +41,62 @@ Group by C.ContactName ,
 c.CompanyName  
 order by Count(o.OrderID) desc
  
+-- Funciones Escalares 
 
-Select * from  [dbo].[reporteTopClientes]
+Create Function obtenerStock (@productId int)
+returns Int 
+As
+Begin 
+Return (select UnitsInStock from Products 
+where ProductID =@productId)
+end
+
+Create Function calculoIva (@orderId int)
+returns Int 
+As
+Begin 
+Return (
+Select SUM(   UnitPrice*0.13 ) from [Order Details] Iva
+where OrderID=  @orderId 
+)
+end
+
+ -- Orden por cliente, y la cantidad de Iva pagado 
+ select C.CompanyName, C.ContactName, OrderID,dbo.calculoIva(OrderID) IvaTotal 
+ from Customers C
+ inner join Orders O 
+ On c.CustomerID= O.CustomerID
+
+
+ --Tabla temporales
+ -- a local 
+
+CREATE TABLE #TempProducts (
+    ProductID INT,
+    ProductName NVARCHAR(50)
+);
+
+select * into #TempOrders 
+From Orders
+where CustomerID='ANATR'
+
+
+select * from #TempOrdersLocal
+
+Drop table #TempOrdersLocal
+
+--b. Global 
+
+CREATE TABLE ##TempProductsGlobal (
+    ProductID INT,
+    ProductName NVARCHAR(50)
+);
+
+select * into ##TempOrdersGlobal 
+From Orders
+where CustomerID='ANATR'
+
+
+select * from ##TempOrdersGlobal
+
+Drop table ##TempOrdersGlobal
