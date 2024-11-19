@@ -27,4 +27,19 @@ CustomerID 'Cliente', OrderDate 'FechaCompra'
 from Orders
 
 Select * from reporteOrdenes
+
+
+--Top 10 clientes con mas ordenes 
+create view reporteTopClientes as
+Select top 10 C.ContactName 'NombreCLiente',
+c.CompanyName 'nombreCompalia',
+Count(o.OrderID) 'cantidadOrdenes'
+from Customers C
+Inner Join Orders O 
+on C.CustomerID= O.CustomerID
+Group by C.ContactName , 
+c.CompanyName  
+order by Count(o.OrderID) desc
  
+
+Select * from  [dbo].[reporteTopClientes]
