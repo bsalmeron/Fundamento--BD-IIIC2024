@@ -10,5 +10,21 @@
 3-  Funciones 
     Escalares ** 
     a- Calculos estandar 
+	    caluloIMC(id_Persona)
+		30
     Tabla
+	    analisisCorporal(idPersona)
+		CalculoIMC  CalucloGrasaViseral etc ...
 */
+
+--Vistas 
+
+use Northwind
+
+Create View reporteOrdenes AS
+select OrderID 'NumOrden',
+CustomerID 'Cliente', OrderDate 'FechaCompra' 
+from Orders
+
+Select * from reporteOrdenes
+ 
