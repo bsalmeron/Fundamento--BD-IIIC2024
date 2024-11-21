@@ -71,3 +71,14 @@ Begin
 End
 
 
+select * from ProductAuditLog
+
+
+Update Products
+SET ProductName ='Chai Premium',
+UnitsInStock= 46
+where ProductID=1
+
+
+Select * from Products
+where ProductID=1
