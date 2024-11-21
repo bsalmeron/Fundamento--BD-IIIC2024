@@ -44,4 +44,30 @@
  -- Ipacto en el Redimiento 
  -- Resticciones: no pueden usar tablas temporales
 
---Job 
+ use Northwind
+ select * from Products
+
+ CREATE TABLE ProductAuditLog (
+    ProductID INT NOT NULL,          -- Identificador del producto modificado
+    ModifiedBy NVARCHAR(100) NOT NULL, -- Usuario que realizó la modificación
+    ModifiedDate DATETIME NOT NULL DEFAULT GETDATE(), -- Fecha y hora de la modificación
+    OriginalValues NVARCHAR(MAX),    -- Valores originales del producto (JSON o texto)
+    NewValues NVARCHAR(MAX)          -- Nuevos valores del producto (JSON o texto)
+);
+
+Select * from ProductAuditLog
+
+Create trigger trg_Producto_Auditoria
+on Products
+After Update
+AS
+Begin 
+	Insert Into ProductAuditLog(ProductID, ModifiedBy, ModifiedDate, OriginalValues, NewValues)
+	Select d.ProductID, SYSTEM_USER,GETDATE(),
+	CONCAT('Nombre: ',d.ProductName, ', Stock: ', d.UnitsInStock ),
+	CONCAT('Nombre: ',i.ProductName, ', Stock: ', i.UnitsInStock )
+	From deleted d
+	JOIN inserted i on d.ProductID = i.ProductID
+End
+
+
